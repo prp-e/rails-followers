@@ -1,0 +1,9 @@
+<img src=<%= "http://gravatar.com/avatar/" + Digest::MD5.hexdigest(@user.email) %> />
+<br>
+<%= @user.email %>
+
+<% if current_user.id != @user.id %>
+    <%= link_to 'Follow', profile_relationships_path(@user), :method => "post" %> 
+<% end %> 
+
+<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
